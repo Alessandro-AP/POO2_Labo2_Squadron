@@ -13,11 +13,7 @@
 #include "ship.h"
 #include <cmath>
 
-
-Ship::Ship(size_t id, size_t speed, size_t weigth, const std::string& model,
-           const std::string& nickname) : id(counter++), speed(speed), weigth(weigth),
-           model(model), nickname(nickname) {
-}
+size_t Ship::counter = 0;
 
 void Ship::setNickname(const std::string &name) {
     nickname = name;

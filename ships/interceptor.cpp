@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : 02
- Fichier     : cargoShip.h
+ Fichier     : interceptor.cpp
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
  Date        : 24.03.2021
  But         :
@@ -10,15 +10,12 @@
  -----------------------------------------------------------------------------------
  */
 
+#include "interceptor.h"
 
-
-#ifndef POO2_LABO2_SQUADRON_CARGOSHIP_H
-#define POO2_LABO2_SQUADRON_CARGOSHIP_H
-
-
-class CargoShip {
-
-};
-
-
-#endif //POO2_LABO2_SQUADRON_CARGOSHIP_H
+Interceptor::Interceptor(const std::string &nickname) {
+    model = "TIE/IN";
+    this->nickname = nickname;
+    id = counter++;
+    speed = 110;
+    weight = 5;
+}

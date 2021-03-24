@@ -24,19 +24,16 @@ class Ship
 public:
     virtual ~Ship();
 
-    Ship(size_t id, size_t speed, size_t weigth, const std::string &model,
-         const std::string &nickname);
-
     void setNickname(const std::string &name);
     double consumption(size_t distance) const;
-    virtual size_t getWeight() const = 0;
+    virtual double getWeight() const = 0;
     virtual std::ostream& toStream(std::ostream& os) const;
 
-private:
+protected:
     static size_t counter;
     size_t id;
     size_t speed;
-    size_t weigth;
+    double weight;
     std::string model;
     std::string nickname;
 };

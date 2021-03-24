@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : 02
- Fichier     : tie.cpp
+ Fichier     : interceptor.h
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
  Date        : 24.03.2021
  But         :
@@ -10,5 +10,17 @@
  -----------------------------------------------------------------------------------
  */
 
+#ifndef POO2_LABO2_SQUADRON_INTERCEPTOR_H
+#define POO2_LABO2_SQUADRON_INTERCEPTOR_H
+
 
 #include "tie.h"
+
+class Interceptor : public TIE {
+
+public:
+    explicit Interceptor(const std::string& nickname = "");
+};
+
+
+#endif //POO2_LABO2_SQUADRON_INTERCEPTOR_H

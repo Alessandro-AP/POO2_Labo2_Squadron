@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : 02
- Fichier     : tie.h
+ Fichier     : destroyer.h
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
  Date        : 24.03.2021
  But         :
@@ -10,14 +10,15 @@
  -----------------------------------------------------------------------------------
  */
 
+#ifndef POO2_LABO2_SQUADRON_DESTROYER_H
+#define POO2_LABO2_SQUADRON_DESTROYER_H
 
-#ifndef POO2_LABO2_SQUADRON_TIE_H
-#define POO2_LABO2_SQUADRON_TIE_H
+#include "cargoShip.h"
 
-
-class TIE {
-
+class Destroyer : public CargoShip {
+public:
+    explicit Destroyer(double load, const std::string& nickname = "");
 };
 
 
-#endif //POO2_LABO2_SQUADRON_TIE_H
+#endif //POO2_LABO2_SQUADRON_DESTROYER_H
