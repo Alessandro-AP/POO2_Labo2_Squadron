@@ -16,10 +16,13 @@
 #include "tie.h"
 
 class LineFighter : public TIE {
-    static size_t counter;
+
 public:
     explicit LineFighter(const std::string& nickname = "");
     ~LineFighter() override = default;
+
+private:
+    static size_t counter;
 };
 
 

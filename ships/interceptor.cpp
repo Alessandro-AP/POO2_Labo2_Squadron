@@ -14,10 +14,6 @@
 
 size_t Interceptor::counter = 0;
 
-Interceptor::Interceptor(const std::string &nickname) {
-    model = "TIE/IN";
-    this->nickname = nickname;
-    id = ++counter;
-    speed = 110;
-    weight = 5;
+Interceptor::Interceptor(const std::string &nickname) : TIE(++counter, 110, 5,
+                                                            "TIE/IN", nickname){
 }

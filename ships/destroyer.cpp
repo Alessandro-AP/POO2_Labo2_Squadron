@@ -14,13 +14,7 @@
 
 size_t Destroyer::counter = 0;
 
-Destroyer::Destroyer(double load, const std::string &nickname) {
-    maxLoad = 250000;
-    if (load > maxLoad)
-        throw std::invalid_argument("Chargement max : 250000 tonnes !");
-    model = "Super-class Star Destroyer";
-    this->nickname = nickname;
-    id = ++counter;
-    speed = 40;
-    weight = 9000000000;
+Destroyer::Destroyer(double load, const std::string &nickname)
+        : CargoShip(++counter, 40, 9000000000, "Super-class Star Destroyer",
+                    nickname, 250000, load) {
 }

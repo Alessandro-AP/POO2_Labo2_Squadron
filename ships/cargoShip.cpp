@@ -13,6 +13,14 @@
 #include "cargoShip.h"
 #include <iomanip>
 
+CargoShip::CargoShip(size_t id, size_t speed, double weight, const std::string& model,
+                     const std::string& nickname, double maxLoad, double load)
+        : Ship(id, speed, weight, model, nickname), maxLoad(maxLoad) {
+    if (load > maxLoad)
+        throw std::invalid_argument("Chargement max depassee!");
+    this->load = load;
+}
+
 void CargoShip::setLoad(double newLoad) {
     load = newLoad;
 }

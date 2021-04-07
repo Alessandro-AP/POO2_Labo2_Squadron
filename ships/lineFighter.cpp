@@ -14,10 +14,6 @@
 
 size_t LineFighter::counter = 0;
 
-LineFighter::LineFighter(const std::string& nickname) {
-    model = "TIE/LN";
-    this->nickname = nickname;
-    id = ++counter;
-    speed = 100;
-    weight = 6;
+LineFighter::LineFighter(const std::string& nickname) : TIE(++counter, 100, 6,
+                                                            "TIE/LN", nickname) {
 }

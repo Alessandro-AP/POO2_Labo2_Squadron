@@ -16,10 +16,13 @@
 #include "cargoShip.h"
 
 class Destroyer : public CargoShip {
-    static size_t counter;
+
 public:
     explicit Destroyer(double load, const std::string& nickname = "");
     ~Destroyer() override = default;
+
+private:
+    static size_t counter;
 };
 
 

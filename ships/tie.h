@@ -17,9 +17,13 @@
 
 #include "ship.h"
 
+// est-ce qu'on fait un fichier cpp ?
+
 class TIE : public Ship {
 
 public:
+    TIE(size_t id, size_t speed, double weight, const std::string& model,
+        const std::string& nickname) : Ship(id, speed, weight, model, nickname) {}
     ~TIE() override = default;
     double getWeight() const override { return weight; }
 };

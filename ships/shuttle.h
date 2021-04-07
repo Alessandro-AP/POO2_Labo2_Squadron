@@ -16,10 +16,13 @@
 #include "cargoShip.h"
 
 class Shuttle : public CargoShip {
-    static size_t counter;
+
 public:
     explicit Shuttle(double load, const std::string& nickname = "");
     ~Shuttle() override = default;
+
+private:
+    static size_t counter;
 };
 
 
