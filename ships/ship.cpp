@@ -26,8 +26,7 @@ void Ship::setNickname(const std::string &name) {
 }
 
 double Ship::consumption(size_t distance) const {
-    return cbrt(getWeight()) / 2.0 * log10((double) speed * getWeight())
-            * log10(distance + 1.0);
+    return log10(speed * getWeight()) * log10(distance + 1.0) * cbrt(getWeight()) / 2.0;
 }
 
 std::ostream &operator<<(std::ostream &os, const Ship &ship) {

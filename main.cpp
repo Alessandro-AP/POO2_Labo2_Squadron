@@ -11,10 +11,12 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include "ships/tie.h"
 #include "ships/lineFighter.h"
 #include "ships/interceptor.h"
 #include "ships/shuttle.h"
+#include "ships/destroyer.h"
 
 using namespace std;
 
@@ -38,6 +40,25 @@ int main() {
     cout << *blackTwo << endl;
     cout << *shuttle << endl;
     cout << *blackOne << endl;
+
+    Ship* list[] = {new LineFighter(), new LineFighter("popol"), new Interceptor("Izi"),
+                    new Destroyer(11000, "ho boy"), new Shuttle(12)};
+    list[0]->setNickname("rrh");
+    ((Shuttle*) list[4])->setLoad(23);
+
+    for (Ship* ship : list) {
+        cout << endl << *ship << endl;
+        cout << "  Consommation sur une distance de 10mio km : " << setprecision(3) << fixed <<
+                ship->consumption(10) << " tonnes de carburant" << endl;
+    }
+
+    // capacité cargo dépassée
+    try {
+        cout << endl << "On bourre le vaisseau : " << endl;
+        auto* err = new Shuttle(90);
+    } catch (invalid_argument& e) {
+        cout << "Erreur : " << e.what() << endl;
+    }
 
     return 0;
 }
