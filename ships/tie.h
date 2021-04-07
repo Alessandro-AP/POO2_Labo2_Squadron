@@ -20,6 +20,7 @@
 class TIE : public Ship {
 
 public:
+    ~TIE() override = default;
     double getWeight() const override { return weight; }
 };
 

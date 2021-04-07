@@ -20,7 +20,7 @@ std::ostream& operator << (std::ostream& os, const Ship& ship);
 
 class Ship
 {
-
+    friend std::ostream& operator << (std::ostream& os, const Ship& ship);
 public:
     virtual ~Ship();
 
@@ -30,7 +30,6 @@ public:
     virtual std::ostream& toStream(std::ostream& os) const;
 
 protected:
-    static size_t counter;
     size_t id;
     size_t speed;
     double weight;

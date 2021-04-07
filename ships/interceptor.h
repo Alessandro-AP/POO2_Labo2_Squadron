@@ -17,9 +17,10 @@
 #include "tie.h"
 
 class Interceptor : public TIE {
-
+    static size_t counter;
 public:
     explicit Interceptor(const std::string& nickname = "");
+    ~Interceptor() override = default;
 };
 
 

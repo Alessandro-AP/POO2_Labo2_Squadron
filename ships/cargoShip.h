@@ -17,9 +17,10 @@
 
 class CargoShip : public Ship {
 public:
-    void setLoad(double newLoad) { load = newLoad; }
-    double getWeight() const override { return weight + load; }
-
+    ~CargoShip() override = default;
+    void setLoad(double newLoad);
+    double getWeight() const override;
+    std::ostream &toStream(std::ostream &os) const override;
 protected:
     double maxLoad;
     double load;

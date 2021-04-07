@@ -12,10 +12,12 @@
 
 #include "lineFighter.h"
 
+size_t LineFighter::counter = 0;
+
 LineFighter::LineFighter(const std::string& nickname) {
     model = "TIE/LN";
     this->nickname = nickname;
-    id = counter++;
+    id = ++counter;
     speed = 100;
     weight = 6;
 }

@@ -11,10 +11,17 @@
  */
 
 #include "cargoShip.h"
+#include <iomanip>
 
-//void CargoShip::setLoad(size_t newLoad) { maxLoad = newLoad; }
-//
-//size_t CargoShip::getWeight() const {
-//    return weight + load;
-//}
+void CargoShip::setLoad(double newLoad) {
+    load = newLoad;
+}
 
+double CargoShip::getWeight() const {
+    return weight + load;
+}
+
+std::ostream &CargoShip::toStream(std::ostream &os) const {
+    return Ship::toStream(os) << "\n  cargo : " << std::setprecision(1) << std::fixed
+            << load << " tons (max : " << maxLoad << ")";
+}

@@ -12,15 +12,17 @@
 
 #include <iostream>
 #include "ships/tie.h"
+#include "ships/lineFighter.h"
 #include "ships/shuttle.h"
 
 using namespace std;
 
 int main() {
 
-    TIE* blackLeader = new TIE();
+//    TIE* blackLeader = new TIE();
+    LineFighter* blackLeader = new LineFighter();
     blackLeader->setNickname("Black leader");
-    TIE* blackTwo = new TIE();
+    LineFighter* blackTwo = new LineFighter();
     Shuttle* shuttle = new Shuttle(23.4); // 23.4 tonnes de marchandises
 //    Squadron squad("Black Squadron");
 //    squad += blackLeader;
@@ -28,6 +30,11 @@ int main() {
 //    squad += shuttle;
 //    squad.setLeader(blackLeader);
 //    cout << squad << endl;
+
+
+    cout << *blackLeader << endl;
+    cout << *blackTwo << endl;
+    cout << *shuttle << endl;
 
     return 0;
 }

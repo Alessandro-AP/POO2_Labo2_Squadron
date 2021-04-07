@@ -13,13 +13,16 @@
 #include "shuttle.h"
 #include <exception>
 
+size_t Shuttle::counter = 0;
+
 Shuttle::Shuttle(double load, const std::string& nickname) {
     maxLoad = 80;
     if (load > maxLoad)
         throw std::invalid_argument("Chargement max : 80 tonnes !");
     model = "Lambda-class shuttle";
     this->nickname = nickname;
-    id = counter++;
+    id = ++counter;
     speed = 54;
     weight = 360;
+    this->load = load;
 }

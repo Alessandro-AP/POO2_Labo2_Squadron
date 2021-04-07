@@ -12,10 +12,12 @@
 
 #include "interceptor.h"
 
+size_t Interceptor::counter = 0;
+
 Interceptor::Interceptor(const std::string &nickname) {
     model = "TIE/IN";
     this->nickname = nickname;
-    id = counter++;
+    id = ++counter;
     speed = 110;
     weight = 5;
 }
