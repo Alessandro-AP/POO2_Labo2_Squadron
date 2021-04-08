@@ -39,3 +39,7 @@ std::ostream &Ship::toStream(std::ostream &os) const {
           "  max speed : " << speed << " MGLT";
     return os;
 }
+
+size_t Ship::getSpeed() const {
+    return speed;
+}

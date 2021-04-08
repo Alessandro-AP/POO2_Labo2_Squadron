@@ -29,6 +29,7 @@ public:
     void setNickname(const std::string &name);
     double consumption(size_t distance) const;
     virtual double getWeight() const = 0;
+    size_t getSpeed() const ;
     virtual std::ostream& toStream(std::ostream& os) const;
 
 private:

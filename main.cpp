@@ -3,7 +3,7 @@
  Laboratoire : 02
  Fichier     : main.cpp
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
- Date        : 24.03.2021
+ Date        : 08.04.2021
  But         :
  Remarque(s) :
  Compilateur : MinGW 6.3.0
@@ -17,12 +17,49 @@
 #include "ships/interceptor.h"
 #include "ships/shuttle.h"
 #include "ships/destroyer.h"
+#include "Squadron.h"
 
 using namespace std;
 
+int main(){
+    LineFighter* blackLeader = new LineFighter();
+    blackLeader->setNickname("Black leader");
+    LineFighter* blackTwo = new LineFighter();
+    Shuttle* shuttle = new Shuttle(23.4); // 23.4 tonnes de marchandises
+    Squadron squad("Black Squadron");
+    squad += blackLeader;
+    squad += blackTwo;
+    squad += shuttle;
+    squad.setLeader(blackLeader);
+    cout << "SQUAD 1:\n" << squad << endl;
+
+    squad -= shuttle;
+    cout << "SQUAD 2:\n" <<  squad << endl;
+
+    squad -= blackLeader;
+    cout << "SQUAD 3:\n" <<  squad << endl;
+
+    squad = squad + blackLeader;
+    cout << "SQUAD 4:\n" <<  squad << endl;
+
+    squad = squad + blackLeader;
+    cout << "SQUAD 4:\n" <<  squad << endl;
+
+    squad = squad + shuttle;
+    cout << "SQUAD 5:\n" <<  squad << endl;
+
+    squad = squad - shuttle;
+    cout << "SQUAD 6:\n" <<  squad << endl;
+
+
+}
+
+
+
+/*
 int main() {
 
-//    TIE* blackLeader = new TIE();
+    //TIE* blackLeader = new TIE();
     LineFighter* blackLeader = new LineFighter();
     blackLeader->setNickname("Black leader");
     LineFighter* blackTwo = new LineFighter();
@@ -61,4 +98,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
