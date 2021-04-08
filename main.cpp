@@ -31,16 +31,26 @@ int main(){
     squad += blackTwo;
     squad += shuttle;
     squad.setLeader(blackLeader);
-    cout << squad << endl;
+    cout << "SQUAD 1:\n" << squad << endl;
 
     squad -= shuttle;
-    cout << squad << endl;
+    cout << "SQUAD 2:\n" <<  squad << endl;
 
     squad -= blackLeader;
-    cout << squad << endl;
+    cout << "SQUAD 3:\n" <<  squad << endl;
 
     squad = squad + blackLeader;
-    cout << squad << endl;
+    cout << "SQUAD 4:\n" <<  squad << endl;
+
+    squad = squad + blackLeader;
+    cout << "SQUAD 4:\n" <<  squad << endl;
+
+    squad = squad + shuttle;
+    cout << "SQUAD 5:\n" <<  squad << endl;
+
+    squad = squad - shuttle;
+    cout << "SQUAD 6:\n" <<  squad << endl;
+
 
 }
 

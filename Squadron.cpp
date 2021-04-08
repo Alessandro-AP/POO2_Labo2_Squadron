@@ -12,7 +12,8 @@ Squadron operator+(Squadron lhs, Ship* const rhs) {
 }
 
 Squadron &Squadron::operator+=(Ship* const rhs) {
-    squad.insertAtEnd(rhs);
+    if(!squad.contains(rhs))
+        squad.insertAtEnd(rhs);
     return *this;
 }
 

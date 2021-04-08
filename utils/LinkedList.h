@@ -21,7 +21,6 @@ class LinkedList
 {
 private:
     Node<T> *head;
-    size_t size{0};
 
 public:
     class Iterator;
@@ -131,7 +130,6 @@ void LinkedList<T>::insertAtStart(T const element)
         this->head = new Node<T>();
         this->head->element = element;
         this->head->next = nullptr;
-        ++size;
         return;
     }
 
@@ -139,7 +137,6 @@ void LinkedList<T>::insertAtStart(T const element)
     newHead->element = element;
     newHead->next = this->head;
     this->head = newHead;
-    ++size;
 }
 
 template <typename T>
@@ -151,7 +148,6 @@ void LinkedList<T>::insertAtEnd(T const element)
         this->head = new Node<T>();
         this->head->element = element;
         this->head->next = nullptr;
-        ++size;
         return;
     }
 
@@ -164,7 +160,6 @@ void LinkedList<T>::insertAtEnd(T const element)
     newTailNode->element = element;
     newTailNode->next = nullptr;
     curr->next = newTailNode;
-    ++size;
 }
 
 
@@ -254,10 +249,6 @@ void LinkedList<T>::deleteAllOccurancesOf(T const element)
     }*/
 }
 
-template<typename T>
-size_t LinkedList<T>::getSize() {
-    return size;
-}
 /*
 template <typename T>
 void LinkedList<T>::reverse()
