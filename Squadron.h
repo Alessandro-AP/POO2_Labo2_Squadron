@@ -1,13 +1,21 @@
-//
-// Created by Alessandro on 08.04.2021.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 02
+ Fichier     : squadron.h
+ Auteur(s)   : Alessandro Parrino et Daniel Sciarra
+ Date        : 08.04.2021
+ But         :
+ Remarque(s) :
+ Compilateur : MinGW 6.3.0
+ -----------------------------------------------------------------------------------
+ */
 
 #ifndef POO2_LABO2_SQUADRON_SQUADRON_H
 #define POO2_LABO2_SQUADRON_SQUADRON_H
 
 #include <iostream>
 #include "ships/ship.h"
-#include "utils/LinkedList.h"
+#include "utils/linkedList.h"
 
 class Squadron {
     friend std::ostream& operator<<(std::ostream& os, const Squadron& m);
