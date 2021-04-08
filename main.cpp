@@ -27,31 +27,47 @@ int main(){
     LineFighter* blackTwo = new LineFighter();
     Shuttle* shuttle = new Shuttle(23.4); // 23.4 tonnes de marchandises
     Squadron squad("Black Squadron");
+    Squadron squad2("Black Squadron2");
     squad += blackLeader;
+    squad2 += blackLeader;
     squad += blackTwo;
     squad += shuttle;
     squad.setLeader(blackLeader);
     cout << "SQUAD 1:\n" << squad << endl;
+    cout << "SQUAD 1TEST:\n" << squad2 << endl;
 
-    squad -= shuttle;
+    //squad -= shuttle;
+    squad.removeFrom(shuttle);
     cout << "SQUAD 2:\n" <<  squad << endl;
 
-    squad -= blackLeader;
+    //squad -= blackLeader;
+    squad.removeFrom(blackLeader);
     cout << "SQUAD 3:\n" <<  squad << endl;
 
-    squad = squad + blackLeader;
+    //squad = squad + blackLeader;
+    squad = squad.add(blackLeader);
     cout << "SQUAD 4:\n" <<  squad << endl;
 
-    squad = squad + blackLeader;
+    //squad = squad + blackLeader;
+    squad = squad.add(blackLeader);
     cout << "SQUAD 4:\n" <<  squad << endl;
 
-    squad = squad + shuttle;
+    //squad = squad + shuttle;
+    squad = squad.add(shuttle);
     cout << "SQUAD 5:\n" <<  squad << endl;
 
-    squad = squad - shuttle;
+   // squad = squad - shuttle;
+    squad = squad.remove(shuttle);
     cout << "SQUAD 6:\n" <<  squad << endl;
 
 
+    // squad = squad - blackLeader;
+    squad = squad.remove(blackLeader);
+    cout << "SQUAD 7:\n" <<  squad << endl;
+
+    // squad = squad - blackTwo;
+    squad = squad.remove(blackTwo);
+    cout << "SQUAD 8:\n" <<  squad << endl;
 }
 
 

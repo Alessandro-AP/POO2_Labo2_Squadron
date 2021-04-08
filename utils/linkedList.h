@@ -25,12 +25,12 @@ private:
 public:
     class Iterator;
     LinkedList();
-    void insertAtStart(T const element);
+   // void insertAtStart(T const element);
     void insertAtEnd(T const element);
     bool contains(T const element) const;
+    bool isEmpty() const;
     //void reverse();
-    void deleteAllOccurancesOf(T const element);
-    size_t getSize();
+    void remove(T const element);
     Iterator begin() const;
     Iterator end() const;
     ~LinkedList();
@@ -86,18 +86,16 @@ public:
         return *this;
 
     }
-    LinkedList<T>::Iterator operator++(int)
+    /*
+    Iterator& operator++(int)
     {
         assert(this->curr != nullptr);
         Iterator newIterator(*this);
 
         this->curr = curr->next;
         return newIterator;
-    }
+    }*/
 };
-
-
-
 
 template <typename T>
 typename LinkedList<T>::Iterator LinkedList<T>::begin() const
@@ -120,7 +118,7 @@ LinkedList<T>::LinkedList()
 {
     this->head = nullptr;
 }
-
+/*
 template <typename T>
 void LinkedList<T>::insertAtStart(T const element)
 {
@@ -138,7 +136,7 @@ void LinkedList<T>::insertAtStart(T const element)
     newHead->next = this->head;
     this->head = newHead;
 }
-
+*/
 template <typename T>
 void LinkedList<T>::insertAtEnd(T const element)
 {
@@ -191,86 +189,47 @@ LinkedList<T>::~LinkedList()
 }
 
 template <typename T>
-void LinkedList<T>::deleteAllOccurancesOf(T const element)
+void LinkedList<T>::remove(T const element)
 {
-    // Store head node
-    Node<T> *tmp = head;
+// Store head node
+    Node<T> * temp = head;
+    Node<T> * prev = NULL;
 
-    while (head->element == element)
+    // If head node itself holds
+    // the key to be deleted
+    if (temp != NULL && temp->element == element)
     {
-        head = head->next;
+        head = temp->next; // Changed head
+        delete temp;            // free old head
+        return;
     }
-    while (tmp->next != NULL)
+
+        // Else Search for the key to be deleted,
+        // keep track of the previous node as we
+        // need to change 'prev->next' */
+    else
     {
-        if (tmp->next->element == element)
+        while (temp != NULL && temp->element != element)
         {
-            tmp->next = tmp->next->next;
+            prev = temp;
+            temp = temp->next;
         }
-        else
-        {
-            tmp = tmp->next;
-        }
+
+        // If key was not present in linked list
+        if (temp == NULL)
+            return;
+
+        // Unlink the node from linked list
+        prev->next = temp->next;
+
+        // Free memory
+        delete temp;
     }
-//    return head;
-
-    /*
-    Node<T> *ptr = this->head;
-    Node<T> *prv = nullptr;
-    Node<T> *temp;
-    while (ptr != nullptr)
-    {
-        if (ptr->element == element)
-        {
-
-            if (prv == nullptr)
-            {
-                temp = ptr->next;
-                delete ptr;
-                ptr = temp;
-                prv = nullptr;
-                --size;
-            }
-
-            else
-            {
-                temp = ptr->next;
-                delete ptr;
-                ptr = temp;
-                prv->next = ptr;
-                --size;
-            }
-        }
-
-        else
-        {
-            prv = ptr;
-            ptr = ptr->next;
-        }
-    }*/
 }
 
-/*
-template <typename T>
-void LinkedList<T>::reverse()
-{
-    if (this->head == nullptr)
-        return;
-
-    Node<T> *curr = this->head,
-            *prev = nullptr,
-            *next = curr->next;
-
-    while (next != nullptr)
-    {
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-        next = curr->next;
-    }
-
-    this->head = curr;
-    this->head->next = prev;
-
-}*/
+template<typename T>
+bool LinkedList<T>::isEmpty() const {
+    return head == nullptr;
+}
 
 #endif //POO2_LABO2_SQUADRON_LINKEDLIST_H

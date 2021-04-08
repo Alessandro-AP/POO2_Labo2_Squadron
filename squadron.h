@@ -23,7 +23,6 @@ class Squadron {
     friend Squadron operator-(Squadron lhs, Ship* const rhs);
 public:
     Squadron(std::string name);
-    //Squadron(Squadron& squadron);
 
     Squadron& operator+=(Ship* const rhs);
     Squadron& operator-=(Ship* const rhs);

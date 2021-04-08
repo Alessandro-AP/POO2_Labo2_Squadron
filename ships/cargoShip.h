@@ -24,7 +24,6 @@ public:
     void setLoad(double newLoad);
     double getWeight() const override;
     std::ostream &toStream(std::ostream &os) const override;
-
 private:
     const double maxLoad;
     double load;

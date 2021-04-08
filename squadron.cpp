@@ -19,6 +19,10 @@ Squadron operator+(Squadron lhs, Ship *const rhs) {
     return lhs += rhs;
 }
 
+Squadron operator-(Squadron lhs, Ship *const rhs) {
+    return lhs -= rhs;
+}
+
 Squadron &Squadron::operator+=(Ship *const rhs) {
     if (!squad.contains(rhs))
         squad.insertAtEnd(rhs);
@@ -27,7 +31,7 @@ Squadron &Squadron::operator+=(Ship *const rhs) {
 
 Squadron &Squadron::operator-=(Ship *const rhs) {
     if (squad.contains(rhs))
-        squad.deleteAllOccurancesOf(rhs);
+        squad.remove(rhs);
 
     if (rhs == leader)
         removeLeader();
@@ -35,11 +39,11 @@ Squadron &Squadron::operator-=(Ship *const rhs) {
     return *this;
 }
 
-Squadron operator-(Squadron lhs, Ship *const rhs) {
-    return lhs -= rhs;
-}
 
 double Squadron::consumption(size_t distance) {
+    if(squad.isEmpty())
+        return 0;
+
     double consumption = 0;
     LinkedList<Ship *>::Iterator i;
     for (i = squad.begin(); i != squad.end(); ++i)
@@ -61,6 +65,9 @@ void Squadron::removeLeader() {
 }
 
 double Squadron::getWeight() const {
+    if(squad.isEmpty())
+        return 0;
+
     double weight = 0;
     LinkedList<Ship *>::Iterator i;
     for (i = squad.begin(); i != squad.end(); ++i)
@@ -69,10 +76,11 @@ double Squadron::getWeight() const {
 }
 
 size_t Squadron::getSpeed() const {
-    LinkedList<Ship *>::Iterator i = squad.begin();
-    LinkedList<Ship *>::Iterator test = squad.end();
-    size_t minSpeed = (*i)->getSpeed();
+    if(squad.isEmpty())
+        return 0;
 
+    LinkedList<Ship *>::Iterator i = squad.begin();
+    size_t minSpeed = (*i)->getSpeed();
 
     for (; i != squad.end(); ++i) {
         if (minSpeed > (*i)->getSpeed())
@@ -91,13 +99,14 @@ std::ostream &operator<<(std::ostream &os, const Squadron &s) {
         os << "-- Leader:\n" << *s.leader << "\n\n";
     }
 
-    os << "-- Members:\n";
-    LinkedList<Ship *>::Iterator i;
-    for (i = s.squad.begin(); i != s.squad.end(); ++i) {
-        if (*i != s.leader)
-            os << **i << "\n\n";
+    if(!s.squad.isEmpty()) {
+        os << "-- Members:\n";
+        LinkedList<Ship *>::Iterator i;
+        for (i = s.squad.begin(); i != s.squad.end(); ++i) {
+            if (*i != s.leader)
+                os << **i << "\n\n";
+        }
     }
-
     return os;
 }
 
