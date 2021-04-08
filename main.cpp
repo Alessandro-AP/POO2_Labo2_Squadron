@@ -17,12 +17,39 @@
 #include "ships/interceptor.h"
 #include "ships/shuttle.h"
 #include "ships/destroyer.h"
+#include "Squadron.h"
 
 using namespace std;
 
+int main(){
+    LineFighter* blackLeader = new LineFighter();
+    blackLeader->setNickname("Black leader");
+    LineFighter* blackTwo = new LineFighter();
+    Shuttle* shuttle = new Shuttle(23.4); // 23.4 tonnes de marchandises
+    Squadron squad("Black Squadron");
+    squad += blackLeader;
+    squad += blackTwo;
+    squad += shuttle;
+    squad.setLeader(blackLeader);
+    cout << squad << endl;
+
+    squad -= shuttle;
+    cout << squad << endl;
+
+    squad -= blackLeader;
+    cout << squad << endl;
+
+    squad = squad + blackLeader;
+    cout << squad << endl;
+
+}
+
+
+
+/*
 int main() {
 
-//    TIE* blackLeader = new TIE();
+    //TIE* blackLeader = new TIE();
     LineFighter* blackLeader = new LineFighter();
     blackLeader->setNickname("Black leader");
     LineFighter* blackTwo = new LineFighter();
@@ -61,4 +88,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
