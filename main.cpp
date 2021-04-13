@@ -79,6 +79,9 @@ int main() {
          setprecision(3) << fixed << squad5.consumption(20) << endl << endl;
 
 
+    Squadron squad6("je suis vide");
+    cout << "SQUAD 6: ----------------------------------------\n" << squad6;
+
     // capacité cargo dépassée
     try {
         cout << endl << "On cree un vaisseau et on le bourre (> capacite cargo):\n";
