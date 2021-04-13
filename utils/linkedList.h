@@ -16,51 +16,92 @@
 #include <iostream>
 #include <cassert>
 
+/**
+ * Maillon de la liste simplement chaînée
+ */
 template<typename T>
 struct Node {
     T element;
     Node* next;
 };
 
+/**
+ * Structure partiel de la liste simplement chaînée
+ */
 template<typename T>
 class LinkedList {
 private:
+    /** Tête de la liste */
     Node<T>* head;
 
 public:
-
+    /**
+     *  Classe représentant L'iterateur de la liste
+     */
     class Iterator {
     private:
+        /** Iterateur courant */
         Node<T>* curr;
-        friend class LinkedList<T>;
 
     public:
 
+        /**
+         * Constructeur de la classe Iterator
+         */
         Iterator() {
             curr = nullptr;
         }
 
+        /**
+         * Constructeur par copie avec un iterateur
+         * @param other iterateur
+         */
         Iterator(const Iterator& other) {
             curr = other.curr;
         }
 
-        Iterator(const LinkedList<T>& list) {
-            curr = list.head;
+        /**
+         * Constructeur par copie avec un node
+         * @param other node
+         */
+        Iterator(Node<T>* node) {
+            curr = node;
         }
 
+        /**
+         * Surcharge de l'opérateur de déréférencement
+         * @return l'element stockée contenu dans le maillon referencé par l'iterateur
+         */
         T& operator*() const {
             assert(this->curr != nullptr);
             return this->curr->element;
         }
 
+        /**
+         * Surcharge de l'opérateur "!="
+         *
+         * @param other iterateur à comparer
+         * @return true si l'iterateur est different, sinon false
+         */
         bool operator!=(const Iterator& other) const {
             return !(*this == other) ;
         }
 
+        /**
+         * Surcharge de l'opérateur "=="
+         *
+         * @param other iterateur à comparer
+         * @return true si l'iterateur est le même, sinon false
+         */
         bool operator==(const Iterator& other) const {
             return this->curr == other.curr ;
         }
 
+        /**
+         * Surcharge de l'opérateur "++" préfixée
+         *
+         * @return le prochain iterateur
+         */
         Iterator& operator++() {
             assert(this->curr != nullptr);
             this->curr = curr->next;
@@ -69,21 +110,64 @@ public:
 
     };
 
+    /**
+     * Constructeur de la classe LinkedList
+     */
     LinkedList();
+
+    /**
+     * Destructeur de la classe LinkedList
+     */
     ~LinkedList();
 
+    /**
+     * Insertion à la fin de la liste
+     *
+     * @param element à inserer
+     */
     void insertAtEnd(const T& element);
 
+    /**
+     * Vérifié si un élément est présent ou non dans la liste
+     *
+     * @param element à rechercher
+     * @return true si l'element est trouvé, sinon false
+     */
     bool contains(const T& element) const;
 
+    /**
+     * Vérifié si la liste est vide
+     *
+     * @return true si la liste est vide, sinon false
+     */
     bool isEmpty() const;
 
+    /**
+     * Supprime un element de la liste
+     *
+     * @param element à supprimer
+     */
     void remove(const T& element);
 
+    /**
+     * Iterateur sur la tête de la liste
+     *
+     * @return un iterateur sur le debut de la liste
+     */
     Iterator begin() const;
 
+    /**
+     * Iterateur sur la fin de la liste
+     *
+     * @return un iterateur sur la fin de la liste
+     */
     Iterator end() const;
 
+    /**
+     * Fonction permettant d'echanger deux linkedList
+     *
+     * @param other à echanger
+     */
     void swap(LinkedList<T>& other);
 };
 
@@ -191,10 +275,9 @@ void LinkedList<T>::swap(LinkedList<T>& other) {
     std::swap(head, other.head);
 }
 
-
 template<typename T>
 typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
-    return Iterator(*this);
+    return Iterator(head);
 }
 
 template<typename T>
