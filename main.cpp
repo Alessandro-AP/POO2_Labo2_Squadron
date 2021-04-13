@@ -23,7 +23,7 @@ int main() {
     LineFighter* blackLeader = new LineFighter();
     blackLeader->setNickname("Black leader");
     LineFighter* blackTwo = new LineFighter();
-    Shuttle* shuttle = new Shuttle(23.4, "popol"); // 23.4 tonnes de marchandises
+    Shuttle* shuttle = new Shuttle(23.4, "popol");
     Destroyer* rrh = new Destroyer(11000, "RRH");
     Interceptor* pdo = new Interceptor("PDO");
     Squadron squad("Black Squadron");
@@ -88,50 +88,3 @@ int main() {
     }
 
 }
-
-
-
-/*
-int main() {
-
-    //TIE* blackLeader = new TIE();
-    LineFighter* blackLeader = new LineFighter();
-    blackLeader->setNickname("Black leader");
-    LineFighter* blackTwo = new LineFighter();
-    TIE* blackOne = new Interceptor();
-    Shuttle* shuttle = new Shuttle(23.4); // 23.4 tonnes de marchandises
-//    Squadron squad("Black Squadron");
-//    squad += blackLeader;
-//    squad += blackTwo;
-//    squad += shuttle;
-//    squad.setLeader(blackLeader);
-//    cout << squad << endl;
-
-
-    cout << *blackLeader << endl;
-    cout << *blackTwo << endl;
-    cout << *shuttle << endl;
-    cout << *blackOne << endl;
-
-    Ship* list[] = {new LineFighter(), new LineFighter("popol"), new Interceptor("Izi"),
-                    new Destroyer(11000, "ho boy"), new Shuttle(12)};
-    list[0]->setNickname("rrh");
-    ((Shuttle*) list[4])->setLoad(23);
-
-    for (Ship* ship : list) {
-        cout << endl << *ship << endl;
-        cout << "  Consommation sur une distance de 10mio km : " << setprecision(3) << fixed <<
-                ship->consumption(10, ship->getSpeed()) << " tonnes de carburant" << endl;
-    }
-
-    // capacité cargo dépassée
-    try {
-        cout << endl << "On bourre le vaisseau : " << endl;
-        auto* err = new Shuttle(90);
-    } catch (invalid_argument& e) {
-        cout << "Erreur : " << e.what() << endl;
-    }
-
-    return 0;
-}
-*/
