@@ -23,6 +23,7 @@ class Squadron {
     friend Squadron operator-(Squadron lhs, Ship* const rhs);
 public:
     Squadron(std::string name);
+    Squadron(const Squadron& copy);
 
     Squadron& operator+=(Ship* const rhs);
     Squadron& operator-=(Ship* const rhs);
@@ -43,7 +44,7 @@ private:
     std::string name;
 
     Ship* leader;
-    LinkedList<Ship*> squad = LinkedList<Ship*>();
+    LinkedList<Ship*> squad;
 };
 
 

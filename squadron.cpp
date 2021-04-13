@@ -13,7 +13,9 @@
 #include <iomanip>
 #include "squadron.h"
 
-Squadron::Squadron(std::string name) : name(name), leader(nullptr) {}
+Squadron::Squadron(std::string name) : name(name), leader(nullptr) {
+    squad = LinkedList<Ship*>();
+}
 
 Squadron operator+(Squadron lhs, Ship *const rhs) {
     return lhs += rhs;
@@ -124,6 +126,18 @@ Squadron Squadron::remove(Ship *const rhs) {
 
 Squadron &Squadron::removeFrom(Ship *const rhs) {
     return *this -= rhs;
+}
+
+Squadron::Squadron(const Squadron &copy) {
+    name = copy.name;
+    leader = copy.leader;
+    squad = LinkedList<Ship*>();
+
+    LinkedList<Ship *>::Iterator i;
+    for (i = copy.squad.begin(); i != copy.squad.end(); ++i)
+        squad.insertAtEnd(*i);
+
+    cout<<"--------------Appel Constructeur de Copie -----------\n";
 }
 
 

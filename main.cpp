@@ -60,7 +60,6 @@ int main(){
     squad = squad.remove(shuttle);
     cout << "SQUAD 6:\n" <<  squad << endl;
 
-
     // squad = squad - blackLeader;
     squad = squad.remove(blackLeader);
     cout << "SQUAD 7:\n" <<  squad << endl;
