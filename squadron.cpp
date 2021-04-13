@@ -17,11 +17,11 @@ Squadron::Squadron(const std::string& name) : name(name),
                                               leader(nullptr),
                                               squad(LinkedList<const Ship*>()) {}
 
-Squadron::Squadron(const Squadron& copy) : Squadron(copy.name) {
-    leader = copy.leader;
+Squadron::Squadron(const Squadron& rhs) : Squadron(rhs.name) {
+    leader = rhs.leader;
 
     LinkedList<const Ship*>::Iterator i;
-    for (i = copy.squad.begin(); i != copy.squad.end(); ++i)
+    for (i = rhs.squad.begin(); i != rhs.squad.end(); ++i)
         squad.insertAtEnd(*i);
 }
 
@@ -80,6 +80,10 @@ size_t Squadron::getSpeed() const {
             minSpeed = (*i)->getSpeed();
     }
     return minSpeed;
+}
+
+void Squadron::setName(const std::string& name) {
+    this->name = name;
 }
 
 std::ostream& operator<<(std::ostream& os, const Squadron& s) {
@@ -148,5 +152,6 @@ void Squadron::swap(Squadron& other) {
     std::swap(leader, other.leader);
     squad.swap(other.squad);
 }
+
 
 

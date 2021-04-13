@@ -28,7 +28,46 @@ private:
     Node<T>* head;
 
 public:
-    class Iterator;
+
+    class Iterator {
+    private:
+        Node<T>* curr;
+        friend class LinkedList<T>;
+
+    public:
+
+        Iterator() {
+            curr = nullptr;
+        }
+
+        Iterator(const Iterator& other) {
+            curr = other.curr;
+        }
+
+        Iterator(const LinkedList<T>& list) {
+            curr = list.head;
+        }
+
+        T& operator*() const {
+            assert(this->curr != nullptr);
+            return this->curr->element;
+        }
+
+        bool operator!=(const Iterator& other) const {
+            return !(*this == other) ;
+        }
+
+        bool operator==(const Iterator& other) const {
+            return this->curr == other.curr ;
+        }
+
+        Iterator& operator++() {
+            assert(this->curr != nullptr);
+            this->curr = curr->next;
+            return *this;
+        }
+
+    };
 
     LinkedList();
     ~LinkedList();
@@ -65,21 +104,34 @@ LinkedList<T>::~LinkedList() {
 
 template<typename T>
 void LinkedList<T>::insertAtEnd(const T& element) {
-    if (this->head == nullptr) {
-        this->head = new Node<T>();
-        this->head->element = element;
-        this->head->next = nullptr;
-        return;
+    // 1. allocate node
+    Node<T>* new_node = new Node<T>();
+
+    // Used in step 5
+    Node<T>* last = head;
+
+    // 2. Put in the data
+    new_node->element = element;
+
+    // 3. This new node is going to be
+    // the last node, so make next of
+    // it as NULL
+    new_node->next = NULL;
+
+    // 4. If the Linked List is empty,
+    // then make the new node as head
+    if (head == NULL)
+    {
+        head = new_node;
     }
+    else { // 5. Else traverse till the last node
 
-    Node<T>* curr = this->head;
-    while (curr->next != nullptr)
-        curr = curr->next;
+        while (last->next != NULL)
+            last = last->next;
 
-    Node<T>* newTailNode = new Node<T>;
-    newTailNode->element = element;
-    newTailNode->next = nullptr;
-    curr->next = newTailNode;
+        // 6. Change the next of last node
+        last->next = new_node;
+    }
 }
 
 
@@ -139,56 +191,6 @@ void LinkedList<T>::swap(LinkedList<T>& other) {
     std::swap(head, other.head);
 }
 
-
-// class Iterator -----------------------------------------
-template<typename T>
-class LinkedList<T>::Iterator {
-
-private:
-    Node<T>* curr;
-    friend class LinkedList<T>;
-
-public:
-
-    Iterator() {
-        curr = nullptr;
-    }
-
-    Iterator(const Iterator& that) {
-        curr = that.curr;
-    }
-
-    Iterator(const LinkedList<T>& list) {
-        curr = list.head;
-    }
-
-    T& operator*() const {
-        assert(this->curr != nullptr);
-        return this->curr->element;
-    }
-
-    bool operator!=(const Iterator& that) const {
-        return (this->curr != that.curr);
-    }
-
-    bool operator==(const Iterator& that) const {
-        return (this->curr == that.curr);
-    }
-
-    Iterator& operator++() {
-        assert(this->curr != nullptr);
-        this->curr = curr->next;
-        return *this;
-    }
-
-    Iterator& operator++(int) {
-        assert(this->curr != nullptr);
-        Iterator newIterator(*this);
-        this->curr = curr->next;
-        return newIterator;
-    }
-
-};
 
 template<typename T>
 typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
