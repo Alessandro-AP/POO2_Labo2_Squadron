@@ -29,7 +29,7 @@ double CargoShip::getWeight() const {
     return weight + load;
 }
 
-std::ostream &CargoShip::toStream(std::ostream &os) const {
+std::ostream& CargoShip::toStream(std::ostream& os) const {
     return Ship::toStream(os) << "\n  cargo : " << std::setprecision(1) << std::fixed
-            << load << " tons (max : " << maxLoad << ")";
+                              << load << " tons (max : " << maxLoad << ")";
 }

@@ -16,28 +16,38 @@
 #include <ostream>
 
 class Ship;
-std::ostream& operator << (std::ostream& os, const Ship& ship);
+
+std::ostream& operator<<(std::ostream& os, const Ship& ship);
 
 class Ship {
-    friend std::ostream& operator << (std::ostream& os, const Ship& ship);
+    friend std::ostream& operator<<(std::ostream& os, const Ship& ship);
 
 public:
+
     Ship(size_t id, size_t speed, double weight, const std::string& model,
          const std::string& nickname);
+
     virtual ~Ship();
 
-    void setNickname(const std::string &name);
+    void setNickname(const std::string& name);
+
     double consumption(size_t distance) const;
+
     virtual double getWeight() const = 0;
-    size_t getSpeed() const ;
+
+    size_t getSpeed() const;
+
     virtual std::ostream& toStream(std::ostream& os) const;
 
 private:
+
     const size_t id;
     const size_t speed;
     const std::string model;
     std::string nickname;
+
 protected:
+
     const double weight;
 };
 

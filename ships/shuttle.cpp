@@ -15,5 +15,5 @@
 size_t Shuttle::counter = 0;
 
 Shuttle::Shuttle(double load, const std::string& nickname)
-    : CargoShip(++counter, 54, 360, "Lambda-class shuttle",
-                nickname, 80, load) {}
+        : CargoShip(++counter, 54, 360, "Lambda-class shuttle",
+                    nickname, 80, load) {}

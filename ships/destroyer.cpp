@@ -14,7 +14,7 @@
 
 size_t Destroyer::counter = 0;
 
-Destroyer::Destroyer(double load, const std::string &nickname)
+Destroyer::Destroyer(double load, const std::string& nickname)
         : CargoShip(++counter, 40, 9000000000, "Super-class Star Destroyer",
                     nickname, 250000, load) {
 }

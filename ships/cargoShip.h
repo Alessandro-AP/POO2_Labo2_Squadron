@@ -20,10 +20,13 @@ class CargoShip : public Ship {
 public:
     CargoShip(size_t id, size_t speed, double weight, const std::string& model,
               const std::string& nickname, double maxLoad, double load);
-    ~CargoShip() override = default;
+
     void setLoad(double newLoad);
+
     double getWeight() const override;
-    std::ostream &toStream(std::ostream &os) const override;
+
+    std::ostream& toStream(std::ostream& os) const override;
+
 private:
     const double maxLoad;
     double load;

@@ -19,7 +19,6 @@ class LineFighter : public TIE {
 
 public:
     explicit LineFighter(const std::string& nickname = "");
-    ~LineFighter() override = default;
 
 private:
     static size_t counter;

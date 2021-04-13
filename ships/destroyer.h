@@ -19,7 +19,6 @@ class Destroyer : public CargoShip {
 
 public:
     explicit Destroyer(double load, const std::string& nickname = "");
-    ~Destroyer() override = default;
 
 private:
     static size_t counter;

@@ -19,34 +19,36 @@
 
 class Squadron {
     friend std::ostream& operator<<(std::ostream& os, const Squadron& m);
-    friend Squadron operator+(Squadron lhs, Ship* const rhs);
-    friend Squadron operator-(Squadron lhs, Ship* const rhs);
+    friend Squadron operator+(Squadron lhs, const Ship* rhs);
+    friend Squadron operator-(Squadron lhs, const Ship* rhs);
+
 public:
-    Squadron(std::string name);
+
+    explicit Squadron(const std::string& name);
     Squadron(const Squadron& copy);
 
     Squadron& operator=(const Squadron& rhs);
 
-    Squadron& operator+=(Ship* const rhs);
-    Squadron& operator-=(Ship* const rhs);
+    Squadron& operator+=(const Ship* rhs);
+    Squadron& operator-=(const Ship* rhs);
 
-    Squadron add(Ship* const rhs);
-    Squadron& addTo(Ship* const rhs);
-    Squadron remove(Ship* const rhs);
-    Squadron& removeFrom(Ship* const rhs);
+    Squadron add(const Ship* rhs) const;
+    Squadron& addTo(const Ship* rhs);
+    Squadron remove(const Ship* rhs) const;
+    Squadron& removeFrom(const Ship* rhs);
 
 
-    double consumption(size_t distance);
-    void setLeader(Ship* leader);
+    double consumption(size_t distance) const;
+    void setLeader(Ship* newLeader);
     void removeLeader();
     double getWeight() const;
     size_t getSpeed() const;
 
 private:
-    std::string name;
 
+    std::string name;
     Ship* leader;
-    LinkedList<Ship*> squad;
+    LinkedList<const Ship*> squad;
 
     void swap(Squadron& squadron);
 };

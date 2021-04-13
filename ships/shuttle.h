@@ -19,7 +19,6 @@ class Shuttle : public CargoShip {
 
 public:
     explicit Shuttle(double load, const std::string& nickname = "");
-    ~Shuttle() override = default;
 
 private:
     static size_t counter;

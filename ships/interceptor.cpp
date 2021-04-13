@@ -14,6 +14,6 @@
 
 size_t Interceptor::counter = 0;
 
-Interceptor::Interceptor(const std::string &nickname) : TIE(++counter, 110, 5,
-                                                            "TIE/IN", nickname){
+Interceptor::Interceptor(const std::string& nickname) : TIE(++counter, 110, 5,
+                                                            "TIE/IN", nickname) {
 }

@@ -22,7 +22,7 @@ class TIE : public Ship {
 public:
     TIE(size_t id, size_t speed, double weight, const std::string& model,
         const std::string& nickname);
-    ~TIE() override = default;
+
     double getWeight() const override;
 };
 

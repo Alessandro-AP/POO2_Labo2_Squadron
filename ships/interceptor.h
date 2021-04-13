@@ -20,7 +20,6 @@ class Interceptor : public TIE {
 
 public:
     explicit Interceptor(const std::string& nickname = "");
-    ~Interceptor() override = default;
 
 private:
     static size_t counter;
