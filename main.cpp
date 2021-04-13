@@ -33,40 +33,65 @@ int main(){
     squad += blackTwo;
     squad += shuttle;
     squad.setLeader(blackLeader);
-    cout << "SQUAD 1:\n" << squad << endl;
-    cout << "SQUAD 1TEST:\n" << squad2 << endl;
+    cout << "## SQUAD 1: ----------------------------------------\n" << squad;
 
-    //squad -= shuttle;
+    cout << "Consommation des membres sur une distance de 10mio km : " <<
+    blackLeader->consumption(10, squad.getSpeed()) << ", " << blackTwo->consumption(10, squad
+    .getSpeed()) << ", " << shuttle->consumption(10, squad.getSpeed()) << endl;
+    cout << "Consommation de SQUAD 1 sur une distance de 10mio km : " << squad.consumption
+    (10) << endl << endl;
+
+    // modifier le nom de squad leader
+    blackLeader->setNickname("White sheep");
+
+    cout << "SQUAD 2: ----------------------------------------\n" << squad2 << endl;
+
+    cout << "Suppression de shuttle (removeFrom) : " << endl;
     squad.removeFrom(shuttle);
-    cout << "SQUAD 2:\n" <<  squad << endl;
+    cout << "SQUAD 1: ----------------------------------------\n" <<  squad << endl;
 
-    //squad -= blackLeader;
-    squad.removeFrom(blackLeader);
-    cout << "SQUAD 3:\n" <<  squad << endl;
+    cout << "Suppression de shuttle (-=) : " << endl;
+    squad -= blackLeader;
+    cout << "SQUAD 1: ----------------------------------------\n" <<  squad << endl;
 
+    cout << "Nouvelle squad en ajoutant un ship (+) : " << endl;
     squad = squad + blackLeader;
 //    squad = squad.add(blackLeader);
-    cout << "SQUAD 4:\n" <<  squad << endl;
+    cout << "SQUAD 3: ----------------------------------------\n" <<  squad << endl;
 
+    cout << "Nouvelle squad en ajoutant un ship deja present : " << endl;
     //squad = squad + blackLeader;
     squad = squad.add(blackLeader);
-    cout << "SQUAD 4:\n" <<  squad << endl;
+    cout << "SQUAD 4: ----------------------------------------\n" <<  squad << endl;
 
+    cout << "Nouvelle squad en ajoutant un ship (add) : " << endl;
     //squad = squad + shuttle;
     squad = squad.add(shuttle);
-    cout << "SQUAD 5:\n" <<  squad << endl;
+    cout << "SQUAD 5: ----------------------------------------\n" <<  squad << endl;
 
-   // squad = squad - shuttle;
-    squad = squad.remove(shuttle);
-    cout << "SQUAD 6:\n" <<  squad << endl;
+    cout << "Nouvelle squad en supprimant un ship (-) : " << endl;
+    squad = squad - shuttle;
+//    squad = squad.remove(shuttle);
+    cout << "SQUAD 6: ----------------------------------------\n" <<  squad << endl;
 
+    cout << "Nouvelle squad en supprimant un ship (remove) : " << endl;
     // squad = squad - blackLeader;
     squad = squad.remove(blackLeader);
-    cout << "SQUAD 7:\n" <<  squad << endl;
+    cout << "SQUAD 7: ----------------------------------------\n" <<  squad << endl;
 
     // squad = squad - blackTwo;
     squad = squad.remove(blackTwo);
-    cout << "SQUAD 8:\n" <<  squad << endl;
+    cout << "SQUAD 8: ----------------------------------------\n" <<  squad << endl;
+
+
+    // capacité cargo dépassée
+    try {
+        cout << endl << "On bourre le vaisseau : " << endl;
+        auto* err = new Shuttle(90);
+    } catch (invalid_argument& e) {
+        cout << "Erreur : " << e.what() << endl;
+    }
+
 }
 
 
