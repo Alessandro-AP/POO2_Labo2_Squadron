@@ -35,7 +35,7 @@ public:
     Iterator end() const;
     ~LinkedList();
 
-
+    void swap(LinkedList<T>& other);
 };
 
 
@@ -230,6 +230,14 @@ void LinkedList<T>::remove(T const element)
 template<typename T>
 bool LinkedList<T>::isEmpty() const {
     return head == nullptr;
+}
+
+template<typename T>
+void LinkedList<T>::swap(LinkedList<T>& other) {
+//    Node<T>* tmp = head;
+//    head = other.head;
+//    other.head = tmp;
+    std::swap(head, other.head);
 }
 
 #endif //POO2_LABO2_SQUADRON_LINKEDLIST_H

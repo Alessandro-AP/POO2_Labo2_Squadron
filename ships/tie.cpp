@@ -10,21 +10,12 @@
  -----------------------------------------------------------------------------------
  */
 
+#include "tie.h"
 
-#ifndef POO2_LABO2_SQUADRON_TIE_H
-#define POO2_LABO2_SQUADRON_TIE_H
+TIE::TIE(size_t id, size_t speed, double weight, const std::string& model,
+         const std::string& nickname) : Ship(id, speed, weight, model, nickname) {
+}
 
-
-#include "ship.h"
-
-class TIE : public Ship {
-
-public:
-    TIE(size_t id, size_t speed, double weight, const std::string& model,
-        const std::string& nickname);
-    ~TIE() override = default;
-    double getWeight() const override;
-};
-
-
-#endif //POO2_LABO2_SQUADRON_TIE_H
+double TIE::getWeight() const {
+    return weight;
+}

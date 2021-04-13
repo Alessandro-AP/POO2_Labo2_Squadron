@@ -136,8 +136,20 @@ Squadron::Squadron(const Squadron &copy) {
     LinkedList<Ship *>::Iterator i;
     for (i = copy.squad.begin(); i != copy.squad.end(); ++i)
         squad.insertAtEnd(*i);
+}
 
-    cout<<"--------------Appel Constructeur de Copie -----------\n";
+Squadron& Squadron::operator=(const Squadron& other) {
+    if (this != &other) {   // Guard self assignment
+        Squadron tmp(other);
+        swap(tmp);
+    }
+    return *this;
+}
+
+void Squadron::swap(Squadron& other) {
+    std::swap(name, other.name);
+    std::swap(leader, other.leader);
+    squad.swap(other.squad);
 }
 
 

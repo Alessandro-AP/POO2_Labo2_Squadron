@@ -25,6 +25,8 @@ public:
     Squadron(std::string name);
     Squadron(const Squadron& copy);
 
+    Squadron& operator=(const Squadron& rhs);
+
     Squadron& operator+=(Ship* const rhs);
     Squadron& operator-=(Ship* const rhs);
 
@@ -45,6 +47,8 @@ private:
 
     Ship* leader;
     LinkedList<Ship*> squad;
+
+    void swap(Squadron& squadron);
 };
 
 

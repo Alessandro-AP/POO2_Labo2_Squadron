@@ -44,8 +44,8 @@ int main(){
     squad.removeFrom(blackLeader);
     cout << "SQUAD 3:\n" <<  squad << endl;
 
-    //squad = squad + blackLeader;
-    squad = squad.add(blackLeader);
+    squad = squad + blackLeader;
+//    squad = squad.add(blackLeader);
     cout << "SQUAD 4:\n" <<  squad << endl;
 
     //squad = squad + blackLeader;
