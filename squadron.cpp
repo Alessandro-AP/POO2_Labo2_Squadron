@@ -4,8 +4,6 @@
  Fichier     : squadron.cpp
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
  Date        : 08.04.2021
- But         :
- Remarque(s) :
  Compilateur : MinGW 6.3.0
  -----------------------------------------------------------------------------------
  */
