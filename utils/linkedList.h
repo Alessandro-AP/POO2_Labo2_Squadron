@@ -62,7 +62,7 @@ public:
          * Constructeur par copie avec un node
          * @param other node
          */
-        Iterator(Node<T>* node) {
+        explicit Iterator(Node<T>* node) {
             curr = node;
         }
 

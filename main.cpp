@@ -42,8 +42,8 @@ int main() {
          blackLeader->consumption(10, squad.getSpeed()) << ", " <<
          blackTwo->consumption(10, squad.getSpeed()) << ", " <<
          shuttle->consumption(10, squad.getSpeed()) << endl;
-    cout << "Consommation de SQUAD 1 sur une distance de 10mio km : " << setprecision(3)
-         << fixed << squad.consumption(10) << endl << endl;
+    cout << "Consommation de SQUAD 1 sur une distance de 10mio km : " <<
+         setprecision(3) << fixed << squad.consumption(10) << endl << endl;
 
     // modifier le nom de black leader
     blackLeader->setNickname("White sheep");
@@ -75,13 +75,13 @@ int main() {
     squad5.setName("HEIG VIP");
     rrh->setLoad(31000.5);
     cout << "SQUAD 5: ----------------------------------------\n" << squad5;
-    cout << "Consommation de SQUAD 5 sur une distance de 20mio km : " << setprecision(3)
-         << fixed << squad5.consumption(20) << endl << endl;
+    cout << "Consommation de SQUAD 5 sur une distance de 20mio km : " <<
+         setprecision(3) << fixed << squad5.consumption(20) << endl << endl;
 
 
     // capacité cargo dépassée
     try {
-        cout << endl << "On cree un vaisseau et on le bourre (> capacite cargo): " << endl;
+        cout << endl << "On cree un vaisseau et on le bourre (> capacite cargo):\n";
         auto* err = new Shuttle(90);
     } catch (invalid_argument& e) {
         cout << "Erreur : " << e.what() << endl;
