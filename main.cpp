@@ -101,7 +101,7 @@ int main() {
     for (Ship* ship : list) {
         cout << endl << *ship << endl;
         cout << "  Consommation sur une distance de 10mio km : " << setprecision(3) << fixed <<
-                ship->consumption(10) << " tonnes de carburant" << endl;
+                ship->consumption(10, ship->getSpeed()) << " tonnes de carburant" << endl;
     }
 
     // capacité cargo dépassée
@@ -113,4 +113,5 @@ int main() {
     }
 
     return 0;
-}*/
+}
+*/

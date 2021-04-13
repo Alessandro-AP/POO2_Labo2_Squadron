@@ -27,6 +27,7 @@ public:
      * @param weight Poids total du CargoShip
      * @param model Modèle du CargoShip
      * @param nickname Surnom du CargoShip
+     * @throw invalid_argument si le chargement dépasse la capacité max
      */
     CargoShip(size_t id, size_t speed, double weight, const std::string& model,
               const std::string& nickname, double maxLoad, double load);

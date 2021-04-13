@@ -40,7 +40,7 @@ double Squadron::consumption(size_t distance) const {
     double consumption = 0;
     LinkedList<const Ship*>::Iterator i;
     for (i = squad.begin(); i != squad.end(); ++i)
-        consumption += (*i)->consumption(distance);
+        consumption += (*i)->consumption(distance, getSpeed());
     return consumption;
 
 }

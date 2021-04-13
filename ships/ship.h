@@ -57,7 +57,7 @@ public:
      * @param distance Distance à parcourir
      * @return consommation du Ship pour la distance donnée
      */
-    double consumption(size_t distance) const;
+    double consumption(size_t distance, size_t speed) const;
 
     /**
      * Méthode abstraite retournant le poids total d'un Ship

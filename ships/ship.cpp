@@ -23,7 +23,7 @@ void Ship::setNickname(const std::string& name) {
     nickname = name;
 }
 
-double Ship::consumption(size_t distance) const {
+double Ship::consumption(size_t distance, size_t speed) const {
     return log10(speed * getWeight()) * log10(distance + 1.0) * cbrt(getWeight()) / 2.0;
 }
 
