@@ -48,68 +48,6 @@ public:
     void swap(LinkedList<T>& other);
 };
 
-
-template<typename T>
-class LinkedList<T>::Iterator {
-
-private:
-    Node<T>* curr;
-    friend class LinkedList<T>;
-
-public:
-
-    Iterator() {
-        curr = nullptr;
-    }
-
-    Iterator(LinkedList<T>::Iterator const& that) {
-        this->curr = that.curr;
-    }
-
-    Iterator(LinkedList<T> const& list) {
-        curr = list.head;
-    }
-
-    T& operator*() const {
-        assert(this->curr != nullptr);
-        return this->curr->element;
-    }
-
-    bool operator!=(LinkedList<T>::Iterator that) const {
-        return (this->curr != that.curr);
-    }
-
-    bool operator==(Iterator const& that) const {
-        return (this->curr == that.curr);
-    }
-
-    Iterator& operator++() {
-        assert(this->curr != nullptr);
-        this->curr = curr->next;
-        return *this;
-    }
-
-    Iterator& operator++(int) {
-        assert(this->curr != nullptr);
-        Iterator newIterator(*this);
-        this->curr = curr->next;
-        return newIterator;
-    }
-};
-
-template<typename T>
-typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
-    LinkedList<T>::Iterator it(*this);
-    return it;
-}
-
-template<typename T>
-typename LinkedList<T>::Iterator LinkedList<T>::end() const {
-    Iterator it;
-    it.curr = nullptr;
-    return it;
-}
-
 template<typename T>
 LinkedList<T>::LinkedList() {
     this->head = nullptr;
@@ -199,6 +137,67 @@ bool LinkedList<T>::isEmpty() const {
 template<typename T>
 void LinkedList<T>::swap(LinkedList<T>& other) {
     std::swap(head, other.head);
+}
+
+
+// class Iterator -----------------------------------------
+template<typename T>
+class LinkedList<T>::Iterator {
+
+private:
+    Node<T>* curr;
+    friend class LinkedList<T>;
+
+public:
+
+    Iterator() {
+        curr = nullptr;
+    }
+
+    Iterator(const Iterator& that) {
+        curr = that.curr;
+    }
+
+    Iterator(const LinkedList<T>& list) {
+        curr = list.head;
+    }
+
+    T& operator*() const {
+        assert(this->curr != nullptr);
+        return this->curr->element;
+    }
+
+    bool operator!=(const Iterator& that) const {
+        return (this->curr != that.curr);
+    }
+
+    bool operator==(const Iterator& that) const {
+        return (this->curr == that.curr);
+    }
+
+    Iterator& operator++() {
+        assert(this->curr != nullptr);
+        this->curr = curr->next;
+        return *this;
+    }
+
+    Iterator& operator++(int) {
+        assert(this->curr != nullptr);
+        Iterator newIterator(*this);
+        this->curr = curr->next;
+        return newIterator;
+    }
+
+};
+
+template<typename T>
+typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
+    return Iterator(*this);
+}
+
+template<typename T>
+typename LinkedList<T>::Iterator LinkedList<T>::end() const {
+    return Iterator();
 }
 
 #endif //POO2_LABO2_SQUADRON_LINKEDLIST_H
