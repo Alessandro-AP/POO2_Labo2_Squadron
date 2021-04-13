@@ -4,8 +4,6 @@
  Fichier     : squadron.h
  Auteur(s)   : Alessandro Parrino et Daniel Sciarra
  Date        : 08.04.2021
- But         :
- Remarque(s) :
  Compilateur : MinGW 6.3.0
  -----------------------------------------------------------------------------------
  */
@@ -50,8 +48,11 @@ private:
     Ship* leader;
     LinkedList<const Ship*> squad;
 
+    /**
+     * Swap de 2 Squadron
+     * @param squadron Autre Squadron à "swaper"
+     */
     void swap(Squadron& squadron);
 };
-
 
 #endif //POO2_LABO2_SQUADRON_SQUADRON_H
