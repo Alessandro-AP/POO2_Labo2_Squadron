@@ -15,7 +15,7 @@
 #include "ships/interceptor.h"
 #include "ships/shuttle.h"
 #include "ships/destroyer.h"
-#include "squadron.h"
+#include "squadron/squadron.h"
 
 using namespace std;
 

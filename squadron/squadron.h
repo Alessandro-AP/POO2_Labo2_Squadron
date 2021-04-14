@@ -12,8 +12,8 @@
 #define POO2_LABO2_SQUADRON_SQUADRON_H
 
 #include <iostream>
-#include "ships/ship.h"
-#include "utils/linkedList.h"
+#include "../ships/ship.h"
+#include "../utils/linkedList.h"
 /**
  * Classe représentant une escadrille
  */
