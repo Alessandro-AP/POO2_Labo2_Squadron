@@ -20,12 +20,14 @@
 class Squadron {
 
     /**
-     * Surcharge de l'opérateur de lecture dans un flux pour les escadrilles.
+     * Surcharge de l'opérateur d'écriture dans un flux pour les escadrilles.
      * Permet l'affichage d'une escadrille
      *
+     * @param os Flux de sortie
+     * @param s l'escadrille
      * @return Squadron sous forme de ostream&
      */
-    friend std::ostream& operator<<(std::ostream& os, const Squadron& m);
+    friend std::ostream& operator<<(std::ostream& os, const Squadron& s);
 
     /**
      * Surcharge de l'opérateur d'addition "+"

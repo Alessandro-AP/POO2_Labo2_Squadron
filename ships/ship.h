@@ -19,7 +19,7 @@
 class Ship;
 
 /**
- * Surcharge de l'opérateur d'affichage sur un flux pour afficher un Ship
+ * Surcharge de l'opérateurd'écriture dans un flux pour afficher un Ship
  * @param os Flux de sortie
  * @param ship Ship à afficher
  * @return le flux de sortie contenant le Ship formaté
