@@ -13,8 +13,8 @@
 #include <iomanip>
 
 Ship::Ship(size_t id, size_t speed, double weight, const std::string& model,
-           const std::string& nickname) : id(id), speed(speed), weight(weight), model(model),
-                                          nickname(nickname) {
+           const std::string& nickname) : id(id), speed(speed), weight(weight),
+                                          model(model),nickname(nickname) {
 }
 
 Ship::~Ship() = default;
@@ -24,7 +24,9 @@ void Ship::setNickname(const std::string& name) {
 }
 
 double Ship::consumption(size_t distance, size_t speed) const {
-    return log10(speed * getWeight()) * log10(distance + 1.0) * cbrt(getWeight()) / 2.0;
+    return log10(speed * getWeight()) *
+           log10(distance + 1.0) *
+           cbrt(getWeight()) / 2.0;
 }
 
 std::ostream& operator<<(std::ostream& os, const Ship& ship) {
@@ -33,10 +35,9 @@ std::ostream& operator<<(std::ostream& os, const Ship& ship) {
 
 std::ostream& Ship::toStream(std::ostream& os) const {
     os << (nickname.empty() ? "" : nickname + " ") + "[" + model + " #" << id << "]\n"
-                                                                                 "  weight : "
-       << std::setprecision(2) << std::fixed << getWeight() << " tons\n"
-                                                               "  max speed : " << speed
-       << " MGLT";
+     "  weight : "<< std::setprecision(2) << std::fixed << getWeight() << " tons\n"
+     "  max speed : " << speed << " MGLT";
+
     return os;
 }
 

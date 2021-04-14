@@ -132,7 +132,8 @@ public:
     Squadron& removeFrom(const Ship* rhs);
 
     /**
-     * Calcul de la consommation de carburant de l’escadrille pour une certaine distance
+     * Calcul de la consommation de carburant de l’escadrille
+     * pour une certaine distance
      *
      * @param distance
      * @return la consommation de l’escadrille

@@ -68,7 +68,8 @@ public:
 
         /**
          * Surcharge de l'opérateur de déréférencement
-         * @return l'element stockée contenu dans le maillon referencé par l'iterateur
+         * @return l'element stockée contenu dans le maillon
+         * referencé par l'iterateur
          */
         T& operator*() const {
             assert(this->curr != nullptr);

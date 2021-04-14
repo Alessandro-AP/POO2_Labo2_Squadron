@@ -43,7 +43,7 @@ int main() {
          blackTwo->consumption(10, squad.getSpeed()) << ", " <<
          shuttle->consumption(10, squad.getSpeed()) << endl;
     cout << "Consommation de SQUAD 1 sur une distance de 10mio km : " <<
-         setprecision(3) << fixed << squad.consumption(10) << endl << endl;
+     setprecision(3) << fixed << squad.consumption(10) << endl << endl;
 
     // modifier le nom de black leader
     blackLeader->setNickname("White sheep");
@@ -76,7 +76,7 @@ int main() {
     rrh->setLoad(31000.5);
     cout << "SQUAD 5: ----------------------------------------\n" << squad5;
     cout << "Consommation de SQUAD 5 sur une distance de 20mio km : " <<
-         setprecision(3) << fixed << squad5.consumption(20) << endl << endl;
+     setprecision(3) << fixed << squad5.consumption(20) << endl << endl;
 
 
     Squadron squad6("je suis vide");
