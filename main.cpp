@@ -90,4 +90,12 @@ int main() {
         cout << "Erreur : " << e.what() << endl;
     }
 
+    // Delete des vaisseau crée avec new
+    delete blackLeader;
+    delete blackTwo;
+    delete shuttle;
+    delete rrh;
+    delete pdo;
+
+    return 0;
 }
